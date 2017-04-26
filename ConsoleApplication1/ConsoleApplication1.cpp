@@ -51,7 +51,7 @@ void onEdit(zamestnanci **zaznamy) {
 	char autor[VELIKOST];
 	char prijmeni[VELIKOST];
 	int den, mesic, rok;
-	double odprdoba;
+	double odprdoba, od, doc;
 
 	getchar();
 	system("cls");
@@ -81,8 +81,16 @@ void onEdit(zamestnanci **zaznamy) {
 	scanf_s("%d", &mesic);
 	printf("Rok: ");
 	scanf_s("%d", &rok);
-	printf("Odpracovana doba: ");
-	scanf_s("%lf", &odprdoba);
+	printf("Zacatek smeny: ");
+	scanf_s("%lf", &od);
+	printf("Konec smeny: ");
+	scanf_s("%lf", &doc);
+	if (od>doc) {
+		odprdoba = od - doc;
+	}
+	else {
+		odprdoba = doc - od;
+	}
 	system("cls");
 	editujZaznam(zaznamy, b, prijmeni, autor, den, mesic, rok, odprdoba);
 }
@@ -99,7 +107,7 @@ void onVypocti(zamestnanci **zaznamy) {
 	char autor[VELIKOST];
 	char prijmeni[VELIKOST];
 	int mesic;
-	double odprdoba;
+	double hodsazba;
 	printf("Prijmeni: ");
 	scanf_s("%[^\n]", prijmeni, VELIKOST);
 	printf("Jmeno: ");
@@ -108,8 +116,8 @@ void onVypocti(zamestnanci **zaznamy) {
 	printf("Mesic: ");
 	scanf_s("%d", &mesic);
 	printf("Hodinová sazba: ");
-	scanf_s("%lf", &odprdoba);
-
+	scanf_s("%lf", &hodsazba);
+	vypoctiMzdu(zaznamy, prijmeni, autor, mesic, hodsazba);
 }
 
 int main()
