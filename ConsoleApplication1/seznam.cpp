@@ -183,6 +183,9 @@ void editujZaznam(zamestnanci **zaznamy, zamestnanci *stary, char *prijmeni, cha
 
 
 }
+void vypoctiMzdu(zamestnanci **zaznamy, char *prijmeni, char *jmeno, int mesic, double hodinovasazba) {
+
+}
 
 void tiskOddelovace() {
 	CONSOLE_SCREEN_BUFFER_INFO csbi;

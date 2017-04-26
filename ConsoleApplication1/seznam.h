@@ -37,6 +37,7 @@ void nactiSeznam(zamestnanci **zaznam);
 void najdiZaznam(zamestnanci *b, char *najdi);
 void tiskRadku(zamestnanci *b);
 void editujZaznam(zamestnanci **zaznamy, zamestnanci *stary, char *prijmeni, char *jmeno, int den, int mesic, int rok, double odp_doba);
+void vypoctiMzdu(zamestnanci **zaznamy, char *prijmeni, char *jmeno, int mesic, double hodinovasazba);
 zamestnanci *vratZaznam(zamestnanci *zaznam, char *prijmeni);
 void tiskOddelovace();
 char *naMale(char *text);

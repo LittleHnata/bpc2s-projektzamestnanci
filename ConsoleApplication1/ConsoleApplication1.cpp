@@ -95,6 +95,22 @@ void onSmaz(zamestnanci **zaznamy) {
 	scanf_s("%[^\n]", prijmeni, VELIKOST);
 	smaz(zaznamy, prijmeni);
 }
+void onVypocti(zamestnanci **zaznamy) {
+	char autor[VELIKOST];
+	char prijmeni[VELIKOST];
+	int mesic;
+	double odprdoba;
+	printf("Prijmeni: ");
+	scanf_s("%[^\n]", prijmeni, VELIKOST);
+	printf("Jmeno: ");
+	getchar();
+	scanf_s("%[^\n]", autor, VELIKOST);
+	printf("Mesic: ");
+	scanf_s("%d", &mesic);
+	printf("Hodinová sazba: ");
+	scanf_s("%lf", &odprdoba);
+
+}
 
 int main()
 {
@@ -157,7 +173,7 @@ int main()
 		}
 		case vypocti:
 		{
-			onEdit(&seznam);
+			onVypocti(&seznam);
 			break;
 		}
 		case konec:
