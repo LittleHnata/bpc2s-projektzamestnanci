@@ -184,6 +184,14 @@ void editujZaznam(zamestnanci **zaznamy, zamestnanci *stary, char *prijmeni, cha
 
 }
 void vypoctiMzdu(zamestnanci **zaznamy, char *prijmeni, char *jmeno, int mesic, double hodinovasazba) {
+	double opracdoba=0;
+	while (*zaznamy != NULL) {
+		if (porovnani((*zaznamy)->prijmeni, prijmeni) == 0 || (porovnani((*zaznamy)->jmeno, jmeno))==0 || (*zaznamy)->mesic==mesic ){
+			opracdoba += ((*zaznamy)->odp_doba);
+		}
+		*zaznamy = (*zaznamy)->next;
+	}
+	printf("Prijmeni: %-25s Jmeno : %-25s Mesic:%d Vyplata : %lf \n",prijmeni,jmeno,mesic,(opracdoba*hodinovasazba));
 
 }
 
@@ -216,7 +224,7 @@ char *naMale(char *text){
 	return pom;
 }
 
-int porovnani(char *str1, char * str2){
+int porovnani(char *str1, char *str2){
 	return strcmp(naMale(str1), naMale(str2));
 
 }

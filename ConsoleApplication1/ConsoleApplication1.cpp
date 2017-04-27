@@ -108,6 +108,7 @@ void onVypocti(zamestnanci **zaznamy) {
 	char prijmeni[VELIKOST];
 	int mesic;
 	double hodsazba;
+	getchar();
 	printf("Prijmeni: ");
 	scanf_s("%[^\n]", prijmeni, VELIKOST);
 	printf("Jmeno: ");
