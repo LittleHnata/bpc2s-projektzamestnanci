@@ -5,7 +5,7 @@
 #include "iostream"
 #include "windows.h"
 
-void pridej(zamestnanci **zaznamy, char *prijmeni, char *jmeno, int den, int mesic, int rok, double odp_doba)
+void pridej(zamestnanci **zaznamy, char *prijmeni, char *jmeno, int den, int mesic, int rok, double odp_doba) //pridava do seznamu
 {
 
 	zamestnanci *b = new zamestnanci;
@@ -55,7 +55,7 @@ void pridej(zamestnanci **zaznamy, char *prijmeni, char *jmeno, int den, int mes
 
 
 
-void tisk(zamestnanci *b)
+void tisk(zamestnanci *b) //tiskne radky s oddelovacem
 {
 	tiskOddelovace();
 	while (b != NULL)
@@ -66,7 +66,7 @@ void tisk(zamestnanci *b)
 	tiskOddelovace();
 }
 
-void smaz(zamestnanci **zaznamy, char *prijmeni) {
+void smaz(zamestnanci **zaznamy, char *prijmeni) { //maze urcite veci ze seznamu
 	
 	zamestnanci *temp, *temp2;
 	temp = *zaznamy;
@@ -106,7 +106,7 @@ void smaz(zamestnanci **zaznamy, char *prijmeni) {
 
 
 
-void nactiSeznam(zamestnanci **zaznam) {
+void nactiSeznam(zamestnanci **zaznam) { //nacita ze souboru
 	FILE *soubor;
 	
 	system("cls");
@@ -132,7 +132,7 @@ void nactiSeznam(zamestnanci **zaznam) {
    tiskOddelovace();
 }
 
-void ulozSeznam(zamestnanci *zaznamy) {
+void ulozSeznam(zamestnanci *zaznamy) { //uklada zaznamy do souboru
 	FILE *soubor;
 	tiskOddelovace();
 	if (fopen_s(&soubor, filePath, "w+") != 0) {
@@ -153,7 +153,7 @@ void ulozSeznam(zamestnanci *zaznamy) {
 }
 
 
-void najdiZaznam(zamestnanci *b, char *najdi) {
+void najdiZaznam(zamestnanci *b, char *najdi) { //hleda zaznamy
 	
 		tiskOddelovace();
 		while(b!=NULL) {
@@ -177,13 +177,13 @@ zamestnanci *vratZaznam(zamestnanci *zaznam, char *prijmeni) {
 	return NULL;
 }
 
-void editujZaznam(zamestnanci **zaznamy, zamestnanci *stary, char *prijmeni, char *jmeno, int den, int mesic, int rok, double odp_doba) {
+void editujZaznam(zamestnanci **zaznamy, zamestnanci *stary, char *prijmeni, char *jmeno, int den, int mesic, int rok, double odp_doba) { //edituje zaznam
 	smaz(zaznamy, stary->prijmeni);
 	pridej(zaznamy, prijmeni, jmeno, den, mesic, rok, odp_doba);
 
 
 }
-void vypoctiMzdu(zamestnanci **zaznamy, char *prijmeni, char *jmeno, int mesic, double hodinovasazba) {
+void vypoctiMzdu(zamestnanci **zaznamy, char *prijmeni, char *jmeno, int mesic, double hodinovasazba) { //vypocitava mzdu za mesic pouze
 	double opracdoba=0;
 	while (*zaznamy != NULL) {
 		if (porovnani((*zaznamy)->prijmeni, prijmeni) == 0 || (porovnani((*zaznamy)->jmeno, jmeno))==0 || (*zaznamy)->mesic==mesic ){
@@ -213,7 +213,7 @@ void tiskRadku(zamestnanci *b) {
 	printf("Prijmeni: %-25s Jmeno: %-25s  Odpracovane hodiny: %2.1lf Den: %d. %d. %d ", b->prijmeni, b->jmeno, b->odp_doba, b->den, b->mesic, b->rok);
 	printf("\n");
 }
-
+//porovnani øetìzcù
 char *naMale(char *text){
 	char *pom;
 	pom = new char[strlen(text)];
